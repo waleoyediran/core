@@ -33,6 +33,12 @@ type Migration struct {
 // Database Handling
 // *****************************************************************************
 
+// Connect to the database with a connection string.
+func ConnectDSN(dataSourceName string) (*sqlx.DB, error) {
+	// Connect to database and ping
+	return sqlx.Connect("mysql", dataSourceName)
+}
+
 // Connect to the database.
 func (c Info) Connect(specificDatabase bool) (*sqlx.DB, error) {
 	// Connect to database and ping
